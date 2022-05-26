@@ -6,7 +6,7 @@
 				<content>
 					<ObjectHeader title="Integra��o Unico" icon="{path:'', formatter:'.defineIcon'}" class="sapUiResponsivePadding--header" id="ObjectHeader">
 						<statuses>
-							<ObjectStatus text="Vers�o do APP: 3.1.9" state="None" id="ObjectStatus"/>
+							<ObjectStatus text="Vers�o do APP: 3.2.0" state="None" id="ObjectStatus"/>
 							<ObjectStatus text="Email: {EmailOrg}" state="None" id="ObjectStatus0"/>
 							<ObjectStatus text="Em Cria��o" state="Success" id="ObjectStatus1"/>
 						</statuses>

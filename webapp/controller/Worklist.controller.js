@@ -364,7 +364,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 					press: function () {
 						t.create(d, C, {
 							success: function (t, e) {
-								sap.m.MessageBox.success("Posi��o enviada com sucesso! vers�o 3.1.9", {
+								sap.m.MessageBox.success("Posi��o enviada com sucesso! vers�o 3.2.0", {
 									actions: ["OK"],
 									onClose: function (e) {
 										n.ExecutaEnviaCargos();
