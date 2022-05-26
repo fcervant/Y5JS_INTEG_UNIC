@@ -1,0 +1,33 @@
+specVersion: "2.4"
+metadata:
+  name: votorantim.Y5JS_INTEGRACAO_UNICO
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: ""
+            destination: SAP_GW_HUB
+          - path: /sap/bc/ui5_ui5
+            destination: SAP_GW_HUB
+            url: ""
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: votorantim.Y5JS_INTEGRACAO_UNICO
+        ui5Theme: sap_fiori_3

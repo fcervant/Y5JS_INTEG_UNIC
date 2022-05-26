@@ -4,16 +4,16 @@
 		<pages>
 			<Page id="idPage" enableScrolling="true" showHeader="false">
 				<content>
-					<ObjectHeader title="Integração Unico" icon="{path:'', formatter:'.defineIcon'}" class="sapUiResponsivePadding--header" id="ObjectHeader">
+					<ObjectHeader title="Integraï¿½ï¿½o Unico" icon="{path:'', formatter:'.defineIcon'}" class="sapUiResponsivePadding--header" id="ObjectHeader">
 						<statuses>
-							<ObjectStatus text="Versão do APP: 3.1.8" state="None" id="ObjectStatus"/>
+							<ObjectStatus text="Versï¿½o do APP: 3.1.9" state="None" id="ObjectStatus"/>
 							<ObjectStatus text="Email: {EmailOrg}" state="None" id="ObjectStatus0"/>
-							<ObjectStatus text="Em Criação" state="Success" id="ObjectStatus1"/>
+							<ObjectStatus text="Em Criaï¿½ï¿½o" state="Success" id="ObjectStatus1"/>
 						</statuses>
 						<ObjectAttribute text="Empresa: {BukrsOrg}" id="ObjectAttribute"/>
 						<ObjectAttribute text="Matricula: {PernrOrg}" id="ObjectAttribute1"/>
-						<ObjectAttribute text="Área RH: {WerksOrg}" id="ObjectAttribute2"/>
-						<ObjectAttribute text="Subárea RH: {BtrtlOrg}" id="ObjectAttribute3"/>
+						<ObjectAttribute text="ï¿½rea RH: {WerksOrg}" id="ObjectAttribute2"/>
+						<ObjectAttribute text="Subï¿½rea RH: {BtrtlOrg}" id="ObjectAttribute3"/>
 					</ObjectHeader>
 					<f:Form id="Fomr1" editable="true">
 						<f:layout>
@@ -38,7 +38,7 @@
 											</ComboBox>
 										</f:fields>
 									</f:FormElement>
-									<f:FormElement label="Data de admissão" id="FormElement2">
+									<f:FormElement label="Data de admissï¿½o" id="FormElement2">
 										<f:fields>
 											<DatePicker id="dataAdmissao" change="onChangedtAdmissao" required="true"/>
 										</f:fields>
@@ -50,7 +50,7 @@
 									</f:FormElement>
 									<f:FormElement id="FormElement4">
 										<f:fields>
-											<Text text="Informações Cadastrais" id="Text2"/>
+											<Text text="Informaï¿½ï¿½es Cadastrais" id="Text2"/>
 										</f:fields>
 									</f:FormElement>
 									<f:FormElement label="Data limite para cadastro" id="FormElement5">
@@ -84,17 +84,17 @@
 								<f:formElements>
 									<f:FormElement id="FormElement9">
 										<f:fields>
-											<Text text="Atribuição Organizacional" id="Text4"/>
+											<Text text="Atribuiï¿½ï¿½o Organizacional" id="Text4"/>
 										</f:fields>
 									</f:FormElement>
-									<f:FormElement label="Posição" id="FormElement10">
+									<f:FormElement label="Posiï¿½ï¿½o" id="FormElement10">
 										<f:fields>
-											<Input value="{Plans}" id="idPosicao" placeholder="Posição" required="true" change="onchangePosicao" maxLength="8"/>
+											<Input value="{Plans}" id="idPosicao" placeholder="Posiï¿½ï¿½o" required="true" change="onchangePosicao" maxLength="8"/>
 										</f:fields>
 									</f:FormElement>
-									<f:FormElement label="Descrição da Posição" id="FormElement11">
+									<f:FormElement label="Descriï¿½ï¿½o da Posiï¿½ï¿½o" id="FormElement11">
 										<f:fields>
-											<Input value="{Descp}" id="idDescPosicao" placeholder="Descrição da Posição" required="false" editable="false"/>
+											<Input value="{Descp}" id="idDescPosicao" placeholder="Descriï¿½ï¿½o da Posiï¿½ï¿½o" required="false" editable="false"/>
 										</f:fields>
 									</f:FormElement>
 									<f:FormElement label="Cargo" id="FormElement12">
@@ -122,9 +122,9 @@
 											<Input value="{Persa} - {Name1}" id="idAreaRH" placeholder="Area RH" required="false" editable="false"/>
 										</f:fields>
 									</f:FormElement>
-									<f:FormElement label="Subárea RH" id="FormElement17">
+									<f:FormElement label="Subï¿½rea RH" id="FormElement17">
 										<f:fields>
-											<Input value="{Btrtl} - {Btext}" id="idsubAreaRH" placeholder="Subárea RH" required="false" editable="false"/>
+											<Input value="{Btrtl} - {Btext}" id="idsubAreaRH" placeholder="Subï¿½rea RH" required="false" editable="false"/>
 										</f:fields>
 									</f:FormElement>
 								</f:formElements>
@@ -146,14 +146,14 @@
 											<Input value="{Persk} - {Descsgre}" id="idSubGrupo" placeholder="SubGrupo Empregado" required="false" editable="false"/>
 										</f:fields>
 									</f:FormElement>
-									<f:FormElement label="Divisão(pb)" id="FormElement21">
+									<f:FormElement label="Divisï¿½o(pb)" id="FormElement21">
 										<f:fields>
-											<Input value="{Gsber} - {Gtext}" id="idDivisao" placeholder="Divisão" required="false" editable="false"/>
+											<Input value="{Gsber} - {Gtext}" id="idDivisao" placeholder="Divisï¿½o" required="false" editable="false"/>
 										</f:fields>
 									</f:FormElement>
-									<f:FormElement label="Área proc. Folha" id="FormElement22">
+									<f:FormElement label="ï¿½rea proc. Folha" id="FormElement22">
 										<f:fields>
-											<Input value="{Abkrs} - {Atext}" id="idAreaProcFolha" placeholder="Área proc. Folha" required="false" editable="false"/>
+											<Input value="{Abkrs} - {Atext}" id="idAreaProcFolha" placeholder="ï¿½rea proc. Folha" required="false" editable="false"/>
 										</f:fields>
 									</f:FormElement>
 									<f:FormElement label="Centro de custo" id="FormElement23">
@@ -166,9 +166,9 @@
 											<Input value="{Cbo} - {Cbode}" id="idCBO" placeholder="CBO" required="false" editable="false"/>
 										</f:fields>
 									</f:FormElement>
-									<f:FormElement label="Relação de Emprego" id="FormElement25">
+									<f:FormElement label="Relaï¿½ï¿½o de Emprego" id="FormElement25">
 										<f:fields>
-											<Input value="{RelEmp} - {DescRel}" id="idRelEmp" placeholder="Relação de emprego" required="false" editable="false"/>
+											<Input value="{RelEmp} - {DescRel}" id="idRelEmp" placeholder="Relaï¿½ï¿½o de emprego" required="false" editable="false"/>
 										</f:fields>
 									</f:FormElement>
 									<f:FormElement id="FormElement26">

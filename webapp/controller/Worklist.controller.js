@@ -12,7 +12,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			//this.ApiKey = "UbEPL29xKT1p81JrAOyrEMhrVu7abJ4Z";
 			//this.LinkCpi = "https://votorantim.apimanagement.br10.hana.ondemand.com:443/jsm-cpi-prd/http/js/acessorh/";
 
-			// ajuste para avaliar qual é o ambiente onde a aplicação está sendo executada - DEV/QA ou PRD
+			// ajuste para avaliar qual ï¿½ o ambiente onde a aplicaï¿½ï¿½o estï¿½ sendo executada - DEV/QA ou PRD
 			var completeURL = window.location.href.toLowerCase();
 			var defAmb = completeURL.indexOf("fiori.votorantim", 0);
 			if (defAmb !== -1) {
@@ -83,7 +83,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var e = t.getParameters().value;
 			if (!e) {
 				this.PrimeiraValidacao();
-				sap.m.MessageBox.error("Posição obrigatoria");
+				sap.m.MessageBox.error("Posiï¿½ï¿½o obrigatoria");
 				this.byId("idPosicao").setValueState("Error");
 				this.byId("button").setVisible(false);
 				return
@@ -139,7 +139,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var e = this.byId("dataAdmissao").getValue();
 			if (e === "") {
 				this.byId("dataAdmissao").setValueState("Error");
-				sap.m.MessageBox.error("Data de admissão obrigatório.");
+				sap.m.MessageBox.error("Data de admissï¿½o obrigatï¿½rio.");
 				this.Erro = "X";
 				return
 			} else {
@@ -152,7 +152,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			a = this.transformaData(a);
 			if (a > i) {
 				this.byId("dataAdmissao").setValueState("Error");
-				sap.m.MessageBox.error("Admissão deve possuir uma data futura.");
+				sap.m.MessageBox.error("Admissï¿½o deve possuir uma data futura.");
 				this.Erro = "X";
 				return
 			} else {
@@ -165,7 +165,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var e = this.byId("dataLimite").getValue();
 			if (e === "") {
 				this.byId("dataLimite").setValueState("Error");
-				sap.m.MessageBox.error("Data de limite obrigatório.");
+				sap.m.MessageBox.error("Data de limite obrigatï¿½rio.");
 				this.Erro = "X";
 				return
 			} else {
@@ -188,7 +188,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			if (i > this.dataAdmissao) {
 				this.byId("dataLimite").setValueState("Error");
 				this.byId("dataAdmissao").setValueState("Error");
-				sap.m.MessageBox.error("Data limite para o cadastro deve inferior à Data de Admissão.");
+				sap.m.MessageBox.error("Data limite para o cadastro deve inferior ï¿½ Data de Admissï¿½o.");
 				this.Erro = "X";
 				return
 			} else {
@@ -289,7 +289,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 				this.Erro = ""
 			} else {
 				this.byId("idEmailCandidato").setValueState("Error");
-				sap.m.MessageBox.error("Email ínvalido.");
+				sap.m.MessageBox.error("Email ï¿½nvalido.");
 				this.Erro = "X";
 				return
 			}
@@ -354,17 +354,17 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 				ReqCandPhone: v
 			};
 			var I = new a({
-				title: "Confirmação",
+				title: "Confirmaï¿½ï¿½o",
 				type: "Message",
 				content: new r({
-					text: "Confirma o envio da posição?"
+					text: "Confirma o envio da posiï¿½ï¿½o?"
 				}),
 				beginButton: new i({
 					text: "Sim",
 					press: function () {
 						t.create(d, C, {
 							success: function (t, e) {
-								sap.m.MessageBox.success("Posição enviada com sucesso! versão 3.1.8", {
+								sap.m.MessageBox.success("Posiï¿½ï¿½o enviada com sucesso! versï¿½o 3.1.9", {
 									actions: ["OK"],
 									onClose: function (e) {
 										n.ExecutaEnviaCargos();
@@ -389,7 +389,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 					}
 				}),
 				endButton: new i({
-					text: "Não",
+					text: "Nï¿½o",
 					press: function () {
 						I.close()
 					}
@@ -438,7 +438,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			l.onreadystatechange = function () {
 				d = l.status;
 				if (d === 200) {} else {
-					sap.m.MessageBox.error("Erro de comunicação API - > envioCargos")
+					sap.m.MessageBox.error("Erro de comunicaï¿½ï¿½o API - > envioCargos")
 				}
 			}
 		},
@@ -509,7 +509,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			v.onreadystatechange = function () {
 				f = v.status;
 				if (f === 200) {} else {
-					sap.m.MessageBox.error("Erro de comunicação API - > envioPosicoes")
+					sap.m.MessageBox.error("Erro de comunicaï¿½ï¿½o API - > envioPosicoes")
 				}
 			}
 		},
