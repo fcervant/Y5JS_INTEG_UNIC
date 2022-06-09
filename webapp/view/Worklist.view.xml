@@ -4,9 +4,9 @@
 		<pages>
 			<Page id="idPage" enableScrolling="true" showHeader="false">
 				<content>
-					<ObjectHeader title="Integração Unico" icon="{path:'', formatter:'.defineIcon'}" class="sapUiResponsivePadding--header" id="ObjectHeader">
+					<ObjectHeader title="JS Integração Unico" icon="{path:'', formatter:'.defineIcon'}" class="sapUiResponsivePadding--header" id="ObjectHeader">
 						<statuses>
-							<ObjectStatus text="Versão do APP: 3.3" state="None" id="ObjectStatus"/>
+							<ObjectStatus text="Versão do APP: 3.5" state="None" id="ObjectStatus"/>
 							<ObjectStatus text="Email : {EmailOrg}" state="None" id="ObjectStatus0"/>
 							<ObjectStatus text="Em Criação" state="Success" id="ObjectStatus1"/>
 						</statuses>
@@ -70,7 +70,7 @@
 									</f:FormElement>
 									<f:FormElement label="CPF do candidato" id="FormElement7_1">
 										<f:fields>
-											<MaskInput mask="999.999.999-99" placeholderSymbol="_" placeholder="CPF do candidato" id="idCPFcandidato" required="true"/>
+											<MaskInput mask="999.999.999-99" placeholderSymbol="_" placeholder="CPF do candidato" id="idCPFcandidato" required="true" change="onChangeCPF"/>
 										</f:fields>
 									</f:FormElement>
 									<f:FormElement label="Celular do candidato" id="FormElement8">

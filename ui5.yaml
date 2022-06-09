@@ -10,11 +10,9 @@ server:
         ignoreCertError: false
         backend:
           - path: /sap
-            url: ""
-            destination: SAP_GW_HUB
-          - path: /sap/bc/ui5_ui5
-            destination: SAP_GW_HUB
-            url: ""
+            url: https://fioridev.votorantim.com.br:443
+            client: '100'
+            destination: FIORIDEV_GATEWAY
         ui5:
           path:
             - /resources

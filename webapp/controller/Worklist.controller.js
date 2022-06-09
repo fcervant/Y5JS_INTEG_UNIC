@@ -274,27 +274,58 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			}
 			if (e.length < 11) {
 				this.byId("idCelularCandidato").setValueState("Error");
-				sap.m.MessageBox.error("Nr. celular invalido - Informe DDD (99) + 9 dígitos.");
+				sap.m.MessageBox.error("Nr. celular invalido - Informe DDD (99)9 + 8 dígitos.");
 				this.Erro = "X";
 				return
+    		} else if (e[2] !== "9") {
+			    this.byId("idCelularCandidato").setValueState("Error");
+			    sap.m.MessageBox.error("Nr. celular invalido - Informe DDD (99)9 + 8 dígitos.");
+			    this.Erro = "X";
+			    return
 			} else {
-				this.byId("idCelularCandidato").setValueState("Success");
-				this.Erro = ""
+			        this.byId("idCelularCandidato").setValueState("Success");
+			        this.Erro = ""
 			}
 		},
-		onChangeEmail: function (t) {
+		
+        onChangeEmail: function (t) {
 			var e = this.byId("idEmailCandidato").getValue();
-			if (e.match(/@/)) {
+            //sap.m.MessageBox.info("Entrei eMail invalido.");
+            if (e.match(/@/)) {
 				this.byId("idEmailCandidato").setValueState("Success");
 				this.Erro = ""
 			} else {
 				this.byId("idEmailCandidato").setValueState("Error");
-				sap.m.MessageBox.error("Email ínvalido.");
+				sap.m.MessageBox.error("Email invalido.");
 				this.Erro = "X";
 				return
 			}
 		},
-		onEnviar: function () {
+
+	    onChangeCPF: function (t) {
+    		var e = this.byId("idCPFCandidato").getValue();
+            //sap.m.MessageBox.info("Entrei CPF invalido.");
+            while (e.indexOf(".") !== -1) {
+				e = e.replace(".", "")
+			}
+			while (e.indexOf("-") !== -1) {
+				e = e.replace(".", "")
+			}
+			while (e.indexOf("_") !== -1) {
+				e = e.replace("_", "")
+			}
+			if (e.length < 11) {
+                this.byId("idCPFCandidato").setValueState("Error");
+      			sap.m.MessageBox.error("CPF invalido.");
+				this.Erro = "X";
+                return            
+			} else {
+                this.byId("idCPFCandidato").setValueState("Success");
+				this.Erro = ""
+			}
+		},
+
+        onEnviar: function () {
 			var t = this.getModel();
 			var e = t.oData;
 			var s = this.byId("idPosicao").getValue();
@@ -519,7 +550,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 						DataContratacao: n,
 						Nome: this.byId("idNomeCandidato").getValue(),
 						CPF: c,
-						Email: this.byId("idEmailCandidato").getValue(),
+						Email: this.byId("idEmailCandidato").getValue().trim(),
 						Telefone: u,
 						externalCode: t,
 						arearh: m,
