@@ -394,8 +394,9 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 					text: "Sim",
 					press: function () {
 						t.create(d, C, {
-							success: function (t, e) {
-								sap.m.MessageBox.success("Posição enviada com sucesso!", {
+
+                            success: function (t, e) {
+								sap.m.MessageBox.success("Posição enviada para processamento!", {
 									actions: ["OK"],
 									onClose: function (e) {
 										n.ExecutaEnviaCargos();
@@ -403,7 +404,8 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 										n.PrimeiraValidacao()
 									}
 								})
-							},
+                            },
+
 							error: function (t) {
 								var e = t;
 								e = e.responseText;
