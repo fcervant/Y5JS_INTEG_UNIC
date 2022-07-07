@@ -39,7 +39,7 @@ sap.ui.define([
 							"tiles": [{
 								"tileType": "sap.ushell.ui.tile.StaticTile",
 								"properties": {
-									"title": "integracaoUnico",
+									"title": "JS Integracao Unico",
 									"targetURL": "#integracaoUnico-display"
 								}
 							}]
@@ -54,7 +54,7 @@ sap.ui.define([
 							"integracaoUnico-display": {
 								"semanticObject": "integracaoUnico",
 								"action": "display",
-								"description": "Integração Unico",
+								"description": "Integraï¿½ï¿½o Unico",
 								"title": "integracaoUnico",
 								"signature": {
 									"parameters": {}

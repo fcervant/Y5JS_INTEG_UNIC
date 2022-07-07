@@ -12,7 +12,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			//this.ApiKey = "UbEPL29xKT1p81JrAOyrEMhrVu7abJ4Z";
 			//this.LinkCpi = "https://votorantim.apimanagement.br10.hana.ondemand.com:443/jsm-cpi-prd/http/js/acessorh/";
 
-			// ajuste para avaliar qual � o ambiente onde a aplica��o est� sendo executada - DEV/QA ou PRD
+			// ajuste para avaliar qual ambiente onde a aplicacao esta sendo executada - DEV/QA ou PRD
 			var completeURL = window.location.href.toLowerCase();
 			var defAmb = completeURL.indexOf("fiori.votorantim", 0);
 			if (defAmb !== -1) {
@@ -26,9 +26,9 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			}
 
 			// ajuste FRC para checar ambiente
-			// sap.m.MessageBox.success(completeURL + " " + this.ApiKey, {
+			//sap.m.MessageBox.success(completeURL + " " + this.ApiKey, {
 			//						actions: ["OK"]
-			// });
+			//});
 
 		},
 		PrimeiraValidacao: function () {
@@ -83,7 +83,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var e = t.getParameters().value;
 			if (!e) {
 				this.PrimeiraValidacao();
-				sap.m.MessageBox.error("Posi��o obrigatoria");
+				sap.m.MessageBox.error("Posição obrigatoria");
 				this.byId("idPosicao").setValueState("Error");
 				this.byId("button").setVisible(false);
 				return
@@ -139,7 +139,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var e = this.byId("dataAdmissao").getValue();
 			if (e === "") {
 				this.byId("dataAdmissao").setValueState("Error");
-				sap.m.MessageBox.error("Data de admiss�o obrigat�rio.");
+				sap.m.MessageBox.error("Data de admissão obrigatório.");
 				this.Erro = "X";
 				return
 			} else {
@@ -152,7 +152,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			a = this.transformaData(a);
 			if (a > i) {
 				this.byId("dataAdmissao").setValueState("Error");
-				sap.m.MessageBox.error("Admiss�o deve possuir uma data futura.");
+				sap.m.MessageBox.error("Admissão deve possuir uma data futura.");
 				this.Erro = "X";
 				return
 			} else {
@@ -165,7 +165,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var e = this.byId("dataLimite").getValue();
 			if (e === "") {
 				this.byId("dataLimite").setValueState("Error");
-				sap.m.MessageBox.error("Data de limite obrigat�rio.");
+				sap.m.MessageBox.error("Data de limite obrigatório.");
 				this.Erro = "X";
 				return
 			} else {
@@ -188,7 +188,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			if (i > this.dataAdmissao) {
 				this.byId("dataLimite").setValueState("Error");
 				this.byId("dataAdmissao").setValueState("Error");
-				sap.m.MessageBox.error("Data limite para o cadastro deve inferior � Data de Admiss�o.");
+				sap.m.MessageBox.error("Data limite para o cadastro deve ser inferior a Data de Admissão.");
 				this.Erro = "X";
 				return
 			} else {
@@ -272,29 +272,60 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			while (e.indexOf("_") !== -1) {
 				e = e.replace("_", "")
 			}
-			if (e.length < 10) {
+			if (e.length < 11) {
 				this.byId("idCelularCandidato").setValueState("Error");
-				sap.m.MessageBox.error("Telefone invalido.");
+				sap.m.MessageBox.error("Nr. celular invalido - Informe DDD (99)9 + 8 dígitos.");
 				this.Erro = "X";
 				return
+    		} else if (e[2] !== "9") {
+			    this.byId("idCelularCandidato").setValueState("Error");
+			    sap.m.MessageBox.error("Nr. celular invalido - Informe DDD (99)9 + 8 dígitos.");
+			    this.Erro = "X";
+			    return
 			} else {
-				this.byId("idCelularCandidato").setValueState("Success");
-				this.Erro = ""
+			        this.byId("idCelularCandidato").setValueState("Success");
+			        this.Erro = ""
 			}
 		},
-		onChangeEmail: function (t) {
+		
+        onChangeEmail: function (t) {
 			var e = this.byId("idEmailCandidato").getValue();
-			if (e.match(/@/)) {
+            //sap.m.MessageBox.info("Entrei eMail invalido.");
+            if (e.match(/@/)) {
 				this.byId("idEmailCandidato").setValueState("Success");
 				this.Erro = ""
 			} else {
 				this.byId("idEmailCandidato").setValueState("Error");
-				sap.m.MessageBox.error("Email �nvalido.");
+				sap.m.MessageBox.error("Email invalido.");
 				this.Erro = "X";
 				return
 			}
 		},
-		onEnviar: function () {
+
+	    onChangeCPF: function (t) {
+    		var e = this.byId("idCPFCandidato").getValue();
+            //sap.m.MessageBox.info("Entrei CPF invalido.");
+            while (e.indexOf(".") !== -1) {
+				e = e.replace(".", "")
+			}
+			while (e.indexOf("-") !== -1) {
+				e = e.replace(".", "")
+			}
+			while (e.indexOf("_") !== -1) {
+				e = e.replace("_", "")
+			}
+			if (e.length < 11) {
+                this.byId("idCPFCandidato").setValueState("Error");
+      			sap.m.MessageBox.error("CPF invalido.");
+				this.Erro = "X";
+                return            
+			} else {
+                this.byId("idCPFCandidato").setValueState("Success");
+				this.Erro = ""
+			}
+		},
+
+        onEnviar: function () {
 			var t = this.getModel();
 			var e = t.oData;
 			var s = this.byId("idPosicao").getValue();
@@ -354,25 +385,27 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 				ReqCandPhone: v
 			};
 			var I = new a({
-				title: "Confirma��o",
+				title: "Confirmação",
 				type: "Message",
 				content: new r({
-					text: "Confirma o envio da posi��o?"
+					text: "Confirma o envio da posição?"
 				}),
 				beginButton: new i({
 					text: "Sim",
 					press: function () {
 						t.create(d, C, {
-							success: function (t, e) {
-								sap.m.MessageBox.success("Posi��o enviada com sucesso! vers�o 3.1.9", {
+
+                            success: function (t, e) {
+								sap.m.MessageBox.success("Posição enviada para processamento!", {
 									actions: ["OK"],
 									onClose: function (e) {
-										n.ExecutaEnviaCargos();
+                                        n.ExecutaEnviaCargos();
 										n.ExecutaContrataCandidato(t.IntId);
 										n.PrimeiraValidacao()
 									}
 								})
-							},
+                            },
+
 							error: function (t) {
 								var e = t;
 								e = e.responseText;
@@ -389,7 +422,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 					}
 				}),
 				endButton: new i({
-					text: "N�o",
+					text: "Não",
 					press: function () {
 						I.close()
 					}
@@ -406,6 +439,12 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var a = this.byId("idPosicao").getValue();
 			var i = "ZET_BUSCA_POSICAOSet('" + a + "')";
 			var r = this.LinkCpi + "envioCargos";
+            
+            // FRC - ajuste para envio da APIKey do ambiente
+            // var headers = {"APIKey": this.APIKey};
+            
+            var h1 = {"APIKey": "1fm687FHCXBGsFBU7y79NBz0EUVorpTL"};
+
 			var s = this.byId("dataAdmissao").getValue();
 			s = this.transformaDataZZ(s);
 			var o = {
@@ -433,15 +472,31 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var n = this.OBJtoXML(o);
 			var d;
 			var l = new XMLHttpRequest;
-			l.open("POST", r, true);
+          
+            //XMLHttpRequest.open(method, url, async) onde async = true or false
+            //l.open("OPTIONS",r,false);
+            //l.setRequestHeader("Content-Type","application/json");
+            //l.setRequestHeader("APIKey","TESTE");
+            //l.send(n);       
+            
+            l.open("POST", r, false);
+            
+            //sap.m.MessageBox.error(h1.APIKey);
+            // l.open("POST", r, true);
+            // l.setRequestHeader("APIKey:" & this.APIKey); ** Não funcionou
+            // l.setRequestHeader("APIKey:",this.APIKey); ** Não funcionou
+            // l.setRequestHeader("APIKey:","teste");            
+            
+            l.setRequestHeader("Content-Type","application/json");
 			l.send(n);
 			l.onreadystatechange = function () {
 				d = l.status;
 				if (d === 200) {} else {
-					sap.m.MessageBox.error("Erro de comunica��o API - > envioCargos")
+					sap.m.MessageBox.error("Erro de comunicação API  - >  envioCargos")
 				}
 			}
 		},
+        
 		ExecutaContrataCandidato: function (t) {
 			var e = this.getModel();
 			var a = e.oData;
@@ -449,6 +504,11 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var r = "ZET_BUSCA_POSICAOSet('" + i + "')";
 			var s = new Date;
 			var o = this.LinkCpi + "envioPosicoes";
+
+            // FRC - ajuste para envio da APIKey do ambiente
+            // var headers = {"APIKey": this.APIKey};
+            var h1 = {"APIKey": "1fm687FHCXBGsFBU7y79NBz0EUVorpTL"};
+
 			var n = this.byId("dataAdmissao").getValue();
 			n = this.transformaDataZZ(n);
 			var d = s.getDate();
@@ -456,6 +516,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var h = s.getFullYear();
 			var u = this.byId("idCelularCandidato").getValue();
 			var c = this.byId("idCPFcandidato").getValue();
+
 			if (d < 10) {
 				d = "0" + d
 			}
@@ -491,7 +552,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 						DataContratacao: n,
 						Nome: this.byId("idNomeCandidato").getValue(),
 						CPF: c,
-						Email: this.byId("idEmailCandidato").getValue(),
+						Email: this.byId("idEmailCandidato").getValue().trim(),
 						Telefone: u,
 						externalCode: t,
 						arearh: m,
@@ -504,12 +565,19 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var b = this.OBJtoXML(g);
 			var f;
 			var v = new XMLHttpRequest;
-			v.open("POST", o, true);
+
+            v.open("POST", o, false);
+            
+			//v.open("POST", o, true);
+            //l.setRequestHeader("APIKey:" & this.APIKey); ** Não funcionou
+            //l.setRequestHeader("APIKey:",this.APIKey); ** Não funcionou
+            
 			v.send(b);
-			v.onreadystatechange = function () {
+
+            v.onreadystatechange = function () {
 				f = v.status;
 				if (f === 200) {} else {
-					sap.m.MessageBox.error("Erro de comunica��o API - > envioPosicoes")
+					sap.m.MessageBox.error("Erro de comunicação API  - >  envioPosicoes")
 				}
 			}
 		},
