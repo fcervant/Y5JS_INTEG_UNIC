@@ -6,9 +6,9 @@
 				<content>
 					<ObjectHeader title="JS Integração Unico" icon="{path:'', formatter:'.defineIcon'}" class="sapUiResponsivePadding--header" id="ObjectHeader">
 						<statuses>
-							<ObjectStatus text="Versão do APP: 3.5c" state="None" id="ObjectStatus"/>
+							<ObjectStatus text="Versão do APP: 3.5e" state="None" id="ObjectStatus"/>
 							<ObjectStatus text="Email : {EmailOrg}" state="None" id="ObjectStatus0"/>
-							<ObjectStatus text="Em Criação" state="Success" id="ObjectStatus1"/>
+							<ObjectStatus text="." state="Success" id="ObjectStatus1"/>
 						</statuses>
 						<ObjectAttribute text="Empresa: {BukrsOrg}" id="ObjectAttribute"/>
 						<ObjectAttribute text="Matricula: {PernrOrg}" id="ObjectAttribute1"/>

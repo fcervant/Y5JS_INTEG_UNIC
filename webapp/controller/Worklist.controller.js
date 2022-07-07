@@ -399,7 +399,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 								sap.m.MessageBox.success("Posição enviada para processamento!", {
 									actions: ["OK"],
 									onClose: function (e) {
-										n.ExecutaEnviaCargos();
+                                        n.ExecutaEnviaCargos();
 										n.ExecutaContrataCandidato(t.IntId);
 										n.PrimeiraValidacao()
 									}
@@ -479,7 +479,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
             //l.setRequestHeader("APIKey","TESTE");
             //l.send(n);       
             
-            l.open("POST", r, true);
+            l.open("POST", r, false);
             
             //sap.m.MessageBox.error(h1.APIKey);
             // l.open("POST", r, true);
@@ -492,7 +492,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			l.onreadystatechange = function () {
 				d = l.status;
 				if (d === 200) {} else {
-					sap.m.MessageBox.error("Erro de comunicação API - > envioCargos")
+					sap.m.MessageBox.error("Erro de comunicação API  - >  envioCargos")
 				}
 			}
 		},
@@ -566,7 +566,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
 			var f;
 			var v = new XMLHttpRequest;
 
-            v.open("POST", o, true);
+            v.open("POST", o, false);
             
 			//v.open("POST", o, true);
             //l.setRequestHeader("APIKey:" & this.APIKey); ** Não funcionou
@@ -577,7 +577,7 @@ sap.ui.define(["./BaseController", "../model/formatter", "sap/m/Dialog", "sap/m/
             v.onreadystatechange = function () {
 				f = v.status;
 				if (f === 200) {} else {
-					sap.m.MessageBox.error("Erro de comunicação API - > envioPosicoes")
+					sap.m.MessageBox.error("Erro de comunicação API  - >  envioPosicoes")
 				}
 			}
 		},
